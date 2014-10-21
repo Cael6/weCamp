@@ -1,3 +1,23 @@
 @import "bootstrap-compass";
 @import "bootstrap-variables";
 @import "bootstrap";
+@import "compass/css3";
+
+body{
+	color: #FFF;
+}
+header {
+	background: #222;
+	height: 64px;
+}
+.knots {
+	background-color: #13d7bd;
+	@include filter-gradient(#13d7bd, #0c5e8d, horizontal);
+	@include background-image(linear-gradient(left top,  #13d7bd 0%,#0c5e8d 100%));
+}
+.tile-button {
+	height: 320px;
+	text-align: center;
+	font-size: 32px;
+	font-weight: bold;
+}
