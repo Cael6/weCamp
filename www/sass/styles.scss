@@ -3,21 +3,111 @@
 @import "bootstrap";
 @import "compass/css3";
 
+$knots-color-1: #13d7bd;
+$knots-color-2: #0c5e8d;
+
+$plants-color-1: #1bcf77;
+$plants-color-2: #11824b;
+
+$fire-color-1: #fe0312;
+$fire-color-2: #7f0109;
+
+$navigation-color-1: #e70985;
+$navigation-color-2: #67043c;
+
+$shelter-color-1: #e8e622;
+$shelter-color-2: #9c9b17;
+
+$first-aid-color-1: #fd5110;
+$first-aid-color-2: #7d2808;
+
+$settings-color-1: #aaa;
+$settings-color-2: #333;
+
+
+@mixin tile-button-gradient($color-1, $color-2) {
+	background-color: $color-1;
+	@include filter-gradient($color-1, $color-2, horizontal);
+	@include background-image(linear-gradient(left top,  $color-1 0%,$color-2 100%));
+}
+
+
 body{
 	color: #FFF;
 }
+$header-height: 64px;
 header {
 	background: #222;
-	height: 64px;
+	height: $header-height;
+	position: relative;
+	.logo {
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		top: ($header-height - 50px)/2;
+		left: ($header-height - 50px)/2;
+	}
+	h1{
+		margin: 0 0 0 $header-height;
+		line-height: $header-height;
+	}
+	.camper-progress {
+		position: absolute;
+		right: 7px;
+		top: 50%;
+		@include translate(0,-50%);
+		span {
+			line-height: 32px;
+			vertical-align: center;
+		}
+		.lvl-progress {
+			display: inline-block;
+			width: 125px;
+			border: 1px solid #EEE;
+			height: 22px;
+			margin-top: 9px;
+			@include border-radius(7px);
+			.progress.seven-ten {
+			 	width: 70%;
+			 	background: #13d7bd;
+			 	margin: 0;
+			}
+		}
+	}
 }
 .knots {
-	background-color: #13d7bd;
-	@include filter-gradient(#13d7bd, #0c5e8d, horizontal);
-	@include background-image(linear-gradient(left top,  #13d7bd 0%,#0c5e8d 100%));
+	@include tile-button-gradient($knots-color-1, $knots-color-2);
+}
+.plants {	
+	@include tile-button-gradient($plants-color-1, $plants-color-2);
+}
+.fire {
+	@include tile-button-gradient($fire-color-1, $fire-color-2);
+}
+.navigation {
+	@include tile-button-gradient($navigation-color-1, $navigation-color-2);
+}
+.shelter {
+	@include tile-button-gradient($shelter-color-1, $shelter-color-2);
+}
+.first-aid {
+	@include tile-button-gradient($first-aid-color-1, $first-aid-color-2);
+}
+.settings {
+	@include tile-button-gradient($settings-color-1, $settings-color-2);
 }
 .tile-button {
 	height: 320px;
 	text-align: center;
 	font-size: 32px;
 	font-weight: bold;
+	position: relative;
+	color: #fff;
+	span.center {
+		position: absolute;
+		top:50%;
+		left:50%;
+		@include translate(-50%, -50%);
+		width: 100%;
+	}
 }
