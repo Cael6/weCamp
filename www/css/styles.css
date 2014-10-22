@@ -8224,3 +8224,37 @@ header .camper-progress .lvl-progress .progress.seven-ten {
   transform: translate(-50%, -50%);
   width: 100%;
 }
+
+/* line 134, ../sass/styles.scss */
+.list-view-btn {
+  height: 100px;
+  color: #fff;
+  position: relative;
+}
+/* line 138, ../sass/styles.scss */
+.list-view-btn span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+/* line 145, ../sass/styles.scss */
+.list-view-btn:after {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-left: 25px solid #FFF;
+}
