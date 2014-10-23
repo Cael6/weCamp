@@ -97,25 +97,32 @@ header {
 	}
 }
 .knots {
-	@include tile-button-gradient($knots-color-1, $knots-color-2);
+	@include tile-button-gradient($knots-color-2, $knots-color-2);
+	color: $knots-color-1;
 }
 .plants {	
-	@include tile-button-gradient($plants-color-1, $plants-color-2);
+	@include tile-button-gradient($plants-color-2, $plants-color-2);
+	color: $plants-color-1;
 }
 .fire {
-	@include tile-button-gradient($fire-color-1, $fire-color-2);
+	@include tile-button-gradient($fire-color-2, $fire-color-2);
+	color: $fire-color-1;
 }
 .navigation {
-	@include tile-button-gradient($navigation-color-1, $navigation-color-2);
+	@include tile-button-gradient($navigation-color-2, $navigation-color-2);
+	color: $navigation-color-1;
 }
 .shelter {
-	@include tile-button-gradient($shelter-color-1, $shelter-color-2);
+	@include tile-button-gradient($shelter-color-2, $shelter-color-2);
+	color: $shelter-color-1;
 }
 .first-aid {
-	@include tile-button-gradient($first-aid-color-1, $first-aid-color-2);
+	@include tile-button-gradient($first-aid-color-2, $first-aid-color-2);
+	color: $first-aid-color-1;
 }
 .settings {
-	@include tile-button-gradient($settings-color-1, $settings-color-2);
+	@include tile-button-gradient($settings-color-2, $settings-color-2);
+	color: $settings-color-1;
 }
 .tile-button {
 	height: 260px;
@@ -124,6 +131,7 @@ header {
 	font-weight: bold;
 	position: relative;
 	color: #fff;
+	border: 1px solid #FFF;
 	span.center {
 		position: absolute;
 		top:50%;
@@ -140,6 +148,7 @@ header {
 	height: 100px;
 	color: #fff;
 	position: relative;
+	border-bottom: 1px solid #fff;
 	span {
 		position: absolute;
 		top: 50%;
