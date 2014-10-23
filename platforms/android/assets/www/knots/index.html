@@ -36,13 +36,14 @@
             <div class="row">
                 <a href="knot1.html">
                     <div class="list-view-btn knots">
-                        <span>Knot 1</span>
+                        <span>Overhand Knot</span>
                     </div>
                 </a>
             </div>
             <div class="row">
-                <a href="knotFlemish.html">
+                <a href="knotFlemish.html" class="checkable">
                     <div class="list-view-btn knots">
+                        <img src="../img/icons/check.svg" class="check hidden"/>
                         <span>Flemish Knot</span>
                     </div>
                 </a>
@@ -57,27 +58,36 @@
             <div class="row">
                 <a href="knot1.html">
                     <div class="list-view-btn knots">
-                        <span>Knot 4</span>
+                        <span>Clove Hitch</span>
                     </div>
                 </a>
             </div>
             <div class="row">
                 <a href="knot1.html">
                     <div class="list-view-btn knots">
-                        <span>Knot 5</span>
+                        <span>Blackwall Hitch</span>
                     </div>
                 </a>
             </div>
             <div class="row">
                 <a href="knot1.html">
                     <div class="list-view-btn knots">
-                        <span>Knot 6</span>
+                        <span>Cat's Paw</span>
                     </div>
                 </a>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            if($.cookie('check') === "true") {
+                $('.check').removeClass('hidden');
+            }
+        });
+        </script>
         <script type="text/javascript">
             app.initialize();
         </script>

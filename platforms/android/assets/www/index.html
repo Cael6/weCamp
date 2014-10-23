@@ -52,7 +52,7 @@
     </header>
         <div class="container">
             <div class="row">
-                <a href="knots/index.html">
+                <a class="knots-category" href="knots/index.html">
                     <div class="col-xs-6 tile-button knots">
                         <span class="center">
                             Knots<br/>
@@ -60,7 +60,7 @@
                         </span>
                     </div>
                 </a>
-                <a href="plants/index.html">
+                <a class="plants-category" href="plants/index.html">
                     <div class="col-xs-6 tile-button plants">
                         <span class="center">
                             Plants <br/>
@@ -68,7 +68,7 @@
                         </span>
                     </div>
                 </a>
-                <a href="fire/index.html">
+                <a class="fire-category" href="fire/index.html">
                     <div class="col-xs-6 tile-button fire">
                         <span class="center">
                             Fire and Fire Safety <br/>
@@ -76,7 +76,7 @@
                         </span>
                     </div>
                 </a>
-                <a href="navigation/index.html">
+                <a class="navigation-category" href="navigation/index.html">
                     <div class="col-xs-6 tile-button navigation">
                         <span class="center">
                             Navigation <br/>
@@ -84,7 +84,7 @@
                         </span>
                     </div>
                 </a>
-                <a href="first-aid/index.html">
+                <a class="first-aid-category" href="first-aid/index.html">
                     <div class="col-xs-6 tile-button first-aid">
                         <span class="center">
                             First-Aid<br/>
@@ -92,7 +92,7 @@
                         </span>
                     </div>  
                 </a>  
-                <a href="#">
+                <a class="settings-category" href="#">
                     <div class="col-xs-6 tile-button settings">
                         <span class="center">
                             Settings <br/>
@@ -107,21 +107,41 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="step-1">
-                    <h4 class="modal-title">Select a group</h4>
-                    <button type="button" class="btn btn-primary boy_scouts">Boy Scouts</button>
-                    <button type="button" class="btn btn-primary girl_guides">Girl Guides</button>
+                            <h4 class="modal-title text-center">Select a group</h4>
+                            <br/>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <button type="button" class="btn btn-primary btn-lg btn-block boy_scouts">Boy Scouts</button>
+                                </div>
+                                <div class="col-xs-6">
+                                    <button type="button" class="btn btn-primary btn-lg btn-block girl_guides">Girl Guides</button>
+                                </div>
+                            </div>
                         </div>
                         <div class="hidden step-2">
-                    <h4 class="modal-title">Select an age group</h4>
-                    <button type="button" class="btn btn-primary 5-11">5 - 11</button>
-                    <button type="button" class="btn btn-primary 12-18">12 - 18</button>
+                            <h4 class="modal-title text-center">Select an age group</h4>
+                            <br/>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <button type="button" class="btn btn-primary btn-lg btn-block 5-11">5 - 11</button>
+                                </div>
+                                <div class="col-xs-6">
+                                    <button type="button" class="btn btn-primary btn-lg btn-block 12-18">12 - 18</button>
+                                </div>
+                            </div>                            
                         </div>
                         <div class="hidden step-3">
-                    <h4 class="modal-title">Enter a password</h4>
-                    <div class="form-group">
-                        <input type="password" id="password" class="form-control" placeholder="Password" />
-                    </div>
-                    <button type="button" class="btn btn-primary save-password">Enter</button>
+                            <h4 class="modal-title text-center">Enter a password</h4>
+                            <br/>
+                            <form id="set-password-form">
+                                <div class="form-group">
+                                    <input type="password" id="password" class="form-control" placeholder="Password" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" id="password2" class="form-control" placeholder="Repeat Password" />
+                                </div>
+                                <button type="submit" class="btn btn-primary save-password">Enter</button>
+                            </form>
                         </div>
                     </div>
                 </div><!-- /.modal-content -->
@@ -134,10 +154,12 @@
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                     <h4 class="modal-title">Enter the leader password</h4>
                     <p class="error"></p>
-                    <div class="form-group">
-                        <input type="password" id="settings_password_input" class="form-control" placeholder="Password" />
-                    </div>
-                    <button type="button" class="btn btn-primary settings_password_continue">Enter</button>
+                    <form id="leader-password-form">
+                        <div class="form-group">
+                            <input type="password" id="settings_password_input" class="form-control" placeholder="Password" />
+                        </div>
+                        <button type="submit" class="btn btn-primary settings_password_continue">Enter</button>
+                    </form>
                 </div>
             </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->
@@ -148,10 +170,17 @@
         <script type="text/javascript" src="js/jquery.cookie.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
         <script type="text/javascript">
-
+        function hideLowerAges(){
+            $('.fire-category').addClass('hidden');
+            $('.first-aid').addClass('hidden');
+        }
             $(document).ready(function(){
                 if($.cookie('settings_set') !== 'true') {
                     $('#scoutGuide').modal('show');
+                }
+
+                if($.cookie('age') === "5-11") {
+                    hideLowerAges();
                 }
 
                 $('.boy_scouts').click(function(e) {
@@ -173,6 +202,7 @@
                     $.cookie('age', '5-11'); 
                     $('.step-2').addClass('hidden');
                     $('.step-3').removeClass('hidden');
+                    hideLowerAges();
                 });
 
                 $('.12-18').click(function(e) {
@@ -182,7 +212,7 @@
                     $('.step-3').removeClass('hidden');
                 });
 
-                $('.save-password').click(function(e) {
+                $('#set-password-form').submit(function(e) {
                     e.preventDefault();
                     $.cookie('password', $('#password').val()); 
                     $.cookie('settings_set', 'true'); 
@@ -193,8 +223,8 @@
                     $('#settings_password').modal('show');
                 });
 
-                $('.settings_password_continue').click(function(e) {
-                    console.log()
+                $('#leader-password-form').submit(function(e) {
+                    e.preventDefault();
                     if($.cookie('password') === $('#settings_password_input').val()) {
                         $('#settings_password').modal('hide');
                         window.location.href = "settings.html";

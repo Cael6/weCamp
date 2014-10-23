@@ -71,6 +71,32 @@
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
+            <div class="modal fade" data-backdrop="static" id="cordova-camera-modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <div class="camera-capture">
+                                <div class="step-2 hidden">
+                                    <img id="camera-image" width="320" height="260"/>
+                                    <p class="error"></p>
+                                    <div class="form-group">
+                                        <input type="password" placeholder="Leader Password" class="form-control" id="cordova_leader_password" />
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <a href="#" class="cordova_submit_leader_password btn btn-primary btn-lg btn-block active">Accept</a>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <a href="#" class="cordova_decline btn btn-primary btn-lg btn-block active">Decline</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
         </div>
         <div class="modal fade" id="success-modal">
                 <div class="modal-dialog">
@@ -90,6 +116,37 @@
         <script type="text/javascript" src="../js/jquery.cookie.js"></script>
         <script type="text/javascript" src="../js/bootstrap.js"></script>
         <script type="text/javascript">
+        var app = {
+            // Application Constructor
+            initialize: function() {
+                this.bindEvents();
+            },
+            // Bind Event Listeners
+            //
+            // Bind any events that are required on startup. Common events are:
+            // 'load', 'deviceready', 'offline', and 'online'.
+            bindEvents: function() {
+                document.addEventListener('deviceready', this.onDeviceReady, false);
+            },
+            // deviceready Event Handler
+            //
+            // The scope of 'this' is the event. In order to call the 'receivedEvent'
+            // function, we must explicitly call 'app.receivedEvent(...);'
+            onDeviceReady: function() {
+                app.receivedEvent('deviceready');
+            },
+            // Update DOM on a Received Event
+            receivedEvent: function(id) {
+                var parentElement = document.getElementById(id);
+                var listeningElement = parentElement.querySelector('.listening');
+                var receivedElement = parentElement.querySelector('.received');
+
+                listeningElement.setAttribute('style', 'display:none;');
+                receivedElement.setAttribute('style', 'display:block;');
+
+                console.log('Received Event: ' + id);
+            }
+        };
             app.initialize();
         </script>
         <script>
@@ -97,6 +154,21 @@
                 var context, video;
                 $('.camera').click(function(e) {
                     e.preventDefault();
+                    navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+                        destinationType: Camera.DestinationType.DATA_URL
+                    });
+
+                    function onSuccess(imageData) {
+                        var image = $('#camera-image');
+                        image.attr('src',"data:image/jpeg;base64," + imageData);
+                        $('#camera-modal').modal('hide');
+                        $('#cordova-camera-modal').modal('show');
+                    }
+
+                    function onFail(message) {
+                        alert('Failed because: ' + message);
+                    }
+
                     $('#camera-modal').modal("show");
                     // Grab elements, create settings, etc.
                     var canvas = document.getElementById("canvas"),

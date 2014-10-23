@@ -67,6 +67,7 @@ C:\xampp\htdocs\weCamp\platforms\android\assets\www\img\first-aid\knucklebandage
 C:\xampp\htdocs\weCamp\platforms\android\assets\www\img\first-aid\stripbandage.jpg \
 C:\xampp\htdocs\weCamp\platforms\android\assets\www\img\icons\aid.svg \
 C:\xampp\htdocs\weCamp\platforms\android\assets\www\img\icons\camera.svg \
+C:\xampp\htdocs\weCamp\platforms\android\assets\www\img\icons\check.svg \
 C:\xampp\htdocs\weCamp\platforms\android\assets\www\img\icons\cog.svg \
 C:\xampp\htdocs\weCamp\platforms\android\assets\www\img\icons\compass.svg \
 C:\xampp\htdocs\weCamp\platforms\android\assets\www\img\icons\flame.svg \
