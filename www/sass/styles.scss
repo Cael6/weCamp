@@ -129,6 +129,10 @@ header {
 		left:50%;
 		@include translate(-50%, -50%);
 		width: 100%;
+		img {
+			width: 32px;
+			height: 32px;
+		}
 	}
 }
 .list-view-btn {
