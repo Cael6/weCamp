@@ -8300,3 +8300,21 @@ header .camper-progress .lvl-progress .progress.seven-ten {
 .camera-capture {
   text-align: center;
 }
+
+/* line 178, ../sass/styles.scss */
+.checkable {
+  display: block;
+  position: relative;
+}
+/* line 181, ../sass/styles.scss */
+.checkable .check {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}

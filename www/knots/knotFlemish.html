@@ -16,9 +16,6 @@
                 &lt; Knots
                 </a>
             </div>
-            <h1>
-                Flemish
-            </h1>
             <div class="camper-progress">
                 <span class="curr-level">
                     Lv. 4
@@ -33,7 +30,7 @@
             </div>
         </header>
         <div class="container">
-            <h2>The Flemish Knot</h2>
+            <h1>The Flemish Knot</h1>
             <img src="../img/knots/flemishknot1.jpg" class="full-image" alt="First step" />
             <p>Layout the rope like an 'S'</p>
             <img src="../img/knots/flemishknot2.jpg" class="full-image" alt="Second step" />
@@ -75,7 +72,7 @@
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
         </div>
-        <div class="modal fade" data-backdrop="static" id="success-modal">
+        <div class="modal fade" id="success-modal">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-body">
@@ -141,6 +138,7 @@
                         $('#camera-modal').modal("hide");
                         $('.camera').unbind().addClass('disabled');
                         $('#success-modal').modal("show");
+                        $.cookie('check', "true");
                     } else {
                         $('.error').html('Incorrect password');
                     }
@@ -152,6 +150,9 @@
                     $('.step-2').addClass('hidden');
                     $('error').html("");
                 });
+                if($.cookie('check') === "true") {
+                    $('.camera').unbind().addClass('disabled');
+                }
             });
         </script>
     </body>

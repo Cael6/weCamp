@@ -2,6 +2,7 @@
 @import "bootstrap-variables";
 @import "bootstrap";
 @import "compass/css3";
+@import "casc_pages";
 
 $knots-color-1: #13d7bd;
 $knots-color-2: #0c5e8d;
@@ -158,4 +159,19 @@ header {
 		border-bottom: 25px solid transparent;
 		border-left: 25px solid #FFF;
 	}
+}
+.error {
+	color: #EE3333;
+}
+.full-image{
+	margin: 0px 21px 21px 0px;
+	@include casc_pages($colors: (#5B67FF, #2D347F, #171A40), $width: 7px);
+	width: 100%;
+}
+.img-icon {
+	width: 22px;
+	height: 22px;
+}
+.camera-capture {
+	text-align: center;
 }

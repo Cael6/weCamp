@@ -17,7 +17,7 @@
                 </a>
             </div>
             <h1>
-                Flemish Knot
+                Flemish
             </h1>
             <div class="camper-progress">
                 <span class="curr-level">
@@ -33,59 +33,126 @@
             </div>
         </header>
         <div class="container">
-            <img src="../img/knots/flemishknot1.jpg" alt="First step" />
+            <h2>The Flemish Knot</h2>
+            <img src="../img/knots/flemishknot1.jpg" class="full-image" alt="First step" />
             <p>Layout the rope like an 'S'</p>
-            <img src="../img/knots/flemishknot2.jpg" alt="Second step" />
+            <img src="../img/knots/flemishknot2.jpg" class="full-image" alt="Second step" />
             <p>Pass the tail over itself to form a loop.</p>
-            <img src="../img/knots/flemishknot3.jpg" alt="Third step" />
+            <img src="../img/knots/flemishknot3.jpg" class="full-image" alt="Third step" />
             <p>Continue under and around the standing end.</p>
-            <img src="../img/knots/flemishknot4.jpg" alt="Last step" />
+            <img src="../img/knots/flemishknot4.jpg" class="full-image" alt="Last step" />
             <p>Complete the knot by passing the tail down through the loop.</p>
-			<video id="video" width="480" height="320" autoplay></video>
-			<button id="snap">Snap Photo</button>
-			<canvas id="canvas" width="480" height="320"></canvas>
+            <p>Take a picture of your knot by clicking below and show your leader in order to get points.</p>
+            <a href="#" class="btn btn-primary btn-lg btn-block active camera"> <img class="img-icon" src="../img/icons/camera.svg" /> &nbsp;Capture knot</a>
+            <div class="modal fade" data-backdrop="static" id="camera-modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <div class="camera-capture">
+                                <div class="step-1">
+                                    <video id="video" width="320" height="260" autoplay></video>
+                                    <button id="snap" class="btn btn-default btn-lg btn-block active">Capture Image</button>
+                                </div>
+                                <div class="step-2 hidden">
+                                    <canvas id="canvas" width="320" height="260"></canvas>
+                                    <p class="error"></p>
+                                    <div class="form-group">
+                                        <input type="password" placeholder="Leader Password" class="form-control" id="leader_password" />
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <a href="#" class="submit_leader_password btn btn-primary btn-lg btn-block active">Accept</a>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <a href="#" class="decline btn btn-primary btn-lg btn-block active">Decline</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>
+        <div class="modal fade" data-backdrop="static" id="success-modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h3>Congratulations</h3>
+                            <p>You got 10 points!</p>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="../js/bootstrap.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
         <script>
-        	var context;
-        	// Put event listeners into place
-			window.addEventListener("DOMContentLoaded", function() {
-				// Grab elements, create settings, etc.
-				var canvas = document.getElementById("canvas"),
-					video = document.getElementById("video"),
-					videoObj = { "video": true },
-					errBack = function(error) {
-						console.log("Video capture error: ", error.code); 
-					};
-				context = canvas.getContext("2d");
+            $(document).ready(function(){
+                var context, video;
+                $('.camera').click(function(e) {
+                    e.preventDefault();
+                    $('#camera-modal').modal("show");
+                    // Grab elements, create settings, etc.
+                    var canvas = document.getElementById("canvas"),
+                        videoObj = { "video": true },
+                        errBack = function(error) {
+                            console.log("Video capture error: ", error.code); 
+                        };
+                    video = document.getElementById("video");
+                    context = canvas.getContext("2d");
 
-				// Put video listeners into place
-				if(navigator.getUserMedia) { // Standard
-					navigator.getUserMedia(videoObj, function(stream) {
-						video.src = stream;
-						video.play();
-					}, errBack);
-				} else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
-					navigator.webkitGetUserMedia(videoObj, function(stream){
-						video.src = window.webkitURL.createObjectURL(stream);
-						video.play();
-					}, errBack);
-				}
-				else if(navigator.mozGetUserMedia) { // Firefox-prefixed
-					navigator.mozGetUserMedia(videoObj, function(stream){
-						video.src = window.URL.createObjectURL(stream);
-						video.play();
-					}, errBack);
-				}
-			}, false);
-			// Trigger photo take
-			document.getElementById("snap").addEventListener("click", function() {
-				context.drawImage(video, 0, 0, 480, 320);
-			});
+                    // Put video listeners into place
+                    if(navigator.getUserMedia) { // Standard
+                        navigator.getUserMedia(videoObj, function(stream) {
+                            video.src = stream;
+                            video.play();
+                        }, errBack);
+                    } else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
+                        navigator.webkitGetUserMedia(videoObj, function(stream){
+                            video.src = window.webkitURL.createObjectURL(stream);
+                            video.play();
+                        }, errBack);
+                    }
+                    else if(navigator.mozGetUserMedia) { // Firefox-prefixed
+                        navigator.mozGetUserMedia(videoObj, function(stream){
+                            video.src = window.URL.createObjectURL(stream);
+                            video.play();
+                        }, errBack);
+                    }
+                    });
+                // Trigger photo take
+                $('#snap').click(function() {
+                    context.drawImage(video, 0, 0, 320, 260);
+                    $('.step-1').addClass('hidden');
+                    $('.step-2').removeClass('hidden');
+                });
+                $('.submit_leader_password').click(function(e) {
+                    e.preventDefault();
+                    if($.cookie('password') === $('#leader_password').val()) {
+                        $('#camera-modal').modal("hide");
+                        $('.camera').unbind().addClass('disabled');
+                        $('#success-modal').modal("show");
+                    } else {
+                        $('.error').html('Incorrect password');
+                    }
+                });
+                $('.decline').click(function(e) {
+                    e.preventDefault();
+                    $('#camera-modal').modal("hide");
+                    $('.step-1').removeClass('hidden');
+                    $('.step-2').addClass('hidden');
+                    $('error').html("");
+                });
+            });
         </script>
     </body>
 </html>
