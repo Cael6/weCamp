@@ -1,0 +1,161 @@
+@import "bootstrap-compass";
+@import "bootstrap-variables";
+@import "bootstrap";
+@import "compass/css3";
+
+$knots-color-1: #13d7bd;
+$knots-color-2: #0c5e8d;
+
+$plants-color-1: #1bcf77;
+$plants-color-2: #11824b;
+
+$fire-color-1: #fe0312;
+$fire-color-2: #7f0109;
+
+$navigation-color-1: #e70985;
+$navigation-color-2: #67043c;
+
+$shelter-color-1: #e8e622;
+$shelter-color-2: #9c9b17;
+
+$first-aid-color-1: #fd5110;
+$first-aid-color-2: #7d2808;
+
+$settings-color-1: #aaa;
+$settings-color-2: #333;
+
+
+@mixin tile-button-gradient($color-1, $color-2) {
+	background-color: $color-1;
+	@include filter-gradient($color-1, $color-2, horizontal);
+	@include background-image(linear-gradient(left top,  $color-1 0%,$color-2 100%));
+}
+
+body{
+	font-size: 18px;
+}
+$header-height: 64px;
+header {
+	color: #FFF;
+	background: #222;
+	height: $header-height;
+	position: relative;
+	.logo, .back{
+		display: block;
+		height: 64px;
+		padding: 7px;
+		float: left;
+	}
+	h1{
+		margin: 0;
+		line-height: $header-height;
+		font-size: 28px;
+		display: inline-block;
+	}
+	.camper-progress {
+		position: absolute;
+		right: 7px;
+		top: 50%;
+		@include translate(0,-50%);
+		span {
+			line-height: 32px;
+			vertical-align: center;
+		}
+		.lvl-progress {
+			display: inline-block;
+			width: 125px;
+			border: 1px solid #EEE;
+			height: 22px;
+			margin-top: 9px;
+			@include border-radius(7px);
+			.progress.seven-ten {
+			 	width: 70%;
+			 	background: #13d7bd;
+			 	margin: 0;
+			}
+		}
+	}
+}
+.back-button {
+	background: green;
+	font-size: 20px;
+	color: white;
+	display: block;
+	line-height: 20px;
+	margin: 5px 0;
+	text-align: center;
+	padding: 10px;
+	@include border-radius(10px);
+	background-color: #333;
+	@include filter-gradient(#555, #111, vertical);
+	@include background-image(linear-gradient(top, #555 0%,#111 100%));
+	border: 1px solid rgba(0,0,0,0.5);
+	&:hover {
+		color: white;
+		text-decoration: none;
+	}
+}
+.knots {
+	@include tile-button-gradient($knots-color-1, $knots-color-2);
+}
+.plants {	
+	@include tile-button-gradient($plants-color-1, $plants-color-2);
+}
+.fire {
+	@include tile-button-gradient($fire-color-1, $fire-color-2);
+}
+.navigation {
+	@include tile-button-gradient($navigation-color-1, $navigation-color-2);
+}
+.shelter {
+	@include tile-button-gradient($shelter-color-1, $shelter-color-2);
+}
+.first-aid {
+	@include tile-button-gradient($first-aid-color-1, $first-aid-color-2);
+}
+.settings {
+	@include tile-button-gradient($settings-color-1, $settings-color-2);
+}
+.tile-button {
+	height: 260px;
+	text-align: center;
+	font-size: 32px;
+	font-weight: bold;
+	position: relative;
+	color: #fff;
+	span.center {
+		position: absolute;
+		top:50%;
+		left:50%;
+		@include translate(-50%, -50%);
+		width: 100%;
+		img {
+			width: 32px;
+			height: 32px;
+		}
+	}
+}
+.list-view-btn {
+	height: 100px;
+	color: #fff;
+	position: relative;
+	span {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		text-align: center;
+		@include translate(-50%, -50%);
+	}
+	&:after {
+		position:absolute;
+		top: 50%;
+		right: 20px;
+		@include translate(0, -50%);
+		content: '';
+		width: 0; 
+		height: 0; 
+		border-top: 25px solid transparent;
+		border-bottom: 25px solid transparent;
+		border-left: 25px solid #FFF;
+	}
+}

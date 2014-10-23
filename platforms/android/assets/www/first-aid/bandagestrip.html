@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="../css/styles.css" />
+        <title>weCamp</title>
+    </head>
+    <body>
+        <header>
+            <div class="back">
+                <a href="index.html" class="back-button">
+                &lt; First-Aid
+                </a>
+            </div>
+            <h1>
+                Strip Bandage
+            </h1>
+            <div class="camper-progress">
+                <span class="curr-level">
+                    Lv. 4
+                </span>
+                <div class="lvl-progress">
+                    <div class="seven-ten progress">
+                    </div>
+                </div>
+                <span class="curr-level">
+                    Lv. 5
+                </span>
+            </div>
+        </header>
+        <div class="container">
+            <img src="../img/first-aid/stripbandage.jpg" alt="A strip bandage" />
+            <p>Used for small cuts.</p>
+			<video id="video" width="480" height="320" autoplay></video>
+			<button id="snap">Snap Photo</button>
+			<canvas id="canvas" width="480" height="320"></canvas>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+        <script>
+        	var context;
+        	// Put event listeners into place
+			window.addEventListener("DOMContentLoaded", function() {
+				// Grab elements, create settings, etc.
+				var canvas = document.getElementById("canvas"),
+					video = document.getElementById("video"),
+					videoObj = { "video": true },
+					errBack = function(error) {
+						console.log("Video capture error: ", error.code); 
+					};
+				context = canvas.getContext("2d");
+
+				// Put video listeners into place
+				if(navigator.getUserMedia) { // Standard
+					navigator.getUserMedia(videoObj, function(stream) {
+						video.src = stream;
+						video.play();
+					}, errBack);
+				} else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
+					navigator.webkitGetUserMedia(videoObj, function(stream){
+						video.src = window.webkitURL.createObjectURL(stream);
+						video.play();
+					}, errBack);
+				}
+				else if(navigator.mozGetUserMedia) { // Firefox-prefixed
+					navigator.mozGetUserMedia(videoObj, function(stream){
+						video.src = window.URL.createObjectURL(stream);
+						video.play();
+					}, errBack);
+				}
+			}, false);
+			// Trigger photo take
+			document.getElementById("snap").addEventListener("click", function() {
+				context.drawImage(video, 0, 0, 480, 320);
+			});
+        </script>
+    </body>
+</html>
