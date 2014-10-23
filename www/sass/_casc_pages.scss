@@ -1,0 +1,35 @@
+/**
+*   casc_pages.scss
+*
+*   This is a mixin built by Caleb Doucet to get the page on top of
+*   other page effect.
+*/
+
+/**
+*   Takes an array of colors and a width and creates a new layer of the same width
+*   for each color.
+*
+*/
+
+@mixin casc_pages($colors: (#DDD, #999, #555), $width: 5px){
+  $prefixes: -webkit-box-shadow, -moz-box-shadow, box-shadow;
+
+  border: $width solid unquote(nth($colors, 1));
+  @each $prefix in $prefixes{
+    $shadowstring: null; //needs to be appended to with a space otherwise commas appear later and break the value.
+    $shadowstring: append($shadowstring, create_separator_shadow(), space);
+    @for $i from 0 to length($colors){
+      @if $i != 0{
+        $shadowstring: append($shadowstring, ($width*$i) ($width*$i) 0 unquote(nth($colors, $i + 1)), comma);
+        $shadowstring: append($shadowstring, create_separator_shadow($width*$i + 1px), comma);
+      }
+    }
+    #{$prefix}: unquote($shadowstring);
+
+  }
+}
+
+@function create_separator_shadow($distance: 1px){
+  $rv: $distance $distance 2px rgba(0,0,0, 0.4);
+  @return $rv;
+}

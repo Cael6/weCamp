@@ -7,6 +7,7 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/styles.css" />
+        <link rel="stylesheet" href="/path/to/dist/css/bootstrapValidator.min.css"/>
         <title>weCamp - Settings</title>
     </head>
     <body>
@@ -55,28 +56,28 @@
                     <div class="row">
                         <div class="col-xs-6">
                             <label class="radio-inline">
-                              <input type="radio" name="age_group" id="age_group_5_11" value="5_11"> 5 - 11
+                              <input type="radio" name="age_group" id="age_group_5-11" value="5-11"> 5 - 11
                             </label>
                         </div>
                         <div class="col-xs-6">
                             <label class="radio-inline">
-                              <input type="radio" name="age_group" id="age_group_12_18" value="12_18"> 12 - 18
+                              <input type="radio" name="age_group" id="age_group_12-18" value="12-18"> 12 - 18
                             </label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>New Leader Password</label>
-                    <input type="password" class="form-control" placeholder="********"/>
+                    <input type="password" class="form-control" id="password1" placeholder="********"/>
                 </div>
                 <div class="form-group">
                     <label>Repeat Password</label>
-                    <input type="password" class="form-control" placeholder="********"/>
+                    <input type="password" class="form-control" id="password2" placeholder="********"/>
                 </div>
                 <br/>
                 <div class="row">
                     <div class="col-xs-6">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block active" role="button">Save</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block active save" role="button">Save</button>
                     </div>
                     <div class="col-xs-6">
                         <a href="index.html" class="btn btn-default btn-lg btn-block active" role="button">Back</a>
@@ -91,9 +92,18 @@
         <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/jquery.cookie.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/bootstrapValidator.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
-
+                $('input[name="app_theme"]#app_theme_' + $.cookie('theme')).prop('checked', true);
+                $('input[name="age_group"]#age_group_' + $.cookie('age')).prop('checked', true);
+                $('.save').click(function(e) {
+                    $.cookie('theme', $('input[name="app_theme"]:checked').val());
+                    $.cookie('age', $('input[name="age_group"]:checked').val());
+                    if($('input#password1').val() !== '') {
+                        $.cookie('password', $('input#password1').val());
+                    }
+                });
             });
         </script>
         <script type="text/javascript">

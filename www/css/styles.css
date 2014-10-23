@@ -8024,33 +8024,44 @@ button.close {
     display: none !important;
   }
 }
-/* line 34, ../sass/styles.scss */
+/**
+*   casc_pages.scss
+*
+*   This is a mixin built by Caleb Doucet to get the page on top of
+*   other page effect.
+*/
+/**
+*   Takes an array of colors and a width and creates a new layer of the same width
+*   for each color.
+*
+*/
+/* line 35, ../sass/styles.scss */
 body {
   font-size: 18px;
 }
 
-/* line 38, ../sass/styles.scss */
+/* line 39, ../sass/styles.scss */
 header {
   color: #FFF;
   background: #222;
   height: 64px;
   position: relative;
 }
-/* line 43, ../sass/styles.scss */
+/* line 44, ../sass/styles.scss */
 header .logo, header .back {
   display: block;
   height: 64px;
   padding: 7px;
   float: left;
 }
-/* line 49, ../sass/styles.scss */
+/* line 50, ../sass/styles.scss */
 header h1 {
   margin: 0;
   line-height: 64px;
   font-size: 28px;
   display: inline-block;
 }
-/* line 55, ../sass/styles.scss */
+/* line 56, ../sass/styles.scss */
 header .camper-progress {
   position: absolute;
   right: 7px;
@@ -8060,12 +8071,12 @@ header .camper-progress {
   -webkit-transform: translate(0, -50%);
   transform: translate(0, -50%);
 }
-/* line 60, ../sass/styles.scss */
+/* line 61, ../sass/styles.scss */
 header .camper-progress span {
   line-height: 32px;
   vertical-align: center;
 }
-/* line 64, ../sass/styles.scss */
+/* line 65, ../sass/styles.scss */
 header .camper-progress .lvl-progress {
   display: inline-block;
   width: 125px;
@@ -8076,14 +8087,14 @@ header .camper-progress .lvl-progress {
   -webkit-border-radius: 7px;
   border-radius: 7px;
 }
-/* line 71, ../sass/styles.scss */
+/* line 72, ../sass/styles.scss */
 header .camper-progress .lvl-progress .progress.seven-ten {
   width: 70%;
   background: #13d7bd;
   margin: 0;
 }
 
-/* line 79, ../sass/styles.scss */
+/* line 80, ../sass/styles.scss */
 .back-button {
   background: green;
   font-size: 20px;
@@ -8107,13 +8118,13 @@ header .camper-progress .lvl-progress .progress.seven-ten {
   background-image: linear-gradient(to bottom, #555555 0%, #111111 100%);
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
-/* line 93, ../sass/styles.scss */
+/* line 94, ../sass/styles.scss */
 .back-button:hover {
   color: white;
   text-decoration: none;
 }
 
-/* line 98, ../sass/styles.scss */
+/* line 99, ../sass/styles.scss */
 .knots {
   background-color: #13d7bd;
   *zoom: 1;
@@ -8126,7 +8137,7 @@ header .camper-progress .lvl-progress .progress.seven-ten {
   background-image: linear-gradient(to right bottom, #13d7bd 0%, #0c5e8d 100%);
 }
 
-/* line 101, ../sass/styles.scss */
+/* line 102, ../sass/styles.scss */
 .plants {
   background-color: #1bcf77;
   *zoom: 1;
@@ -8139,7 +8150,7 @@ header .camper-progress .lvl-progress .progress.seven-ten {
   background-image: linear-gradient(to right bottom, #1bcf77 0%, #11824b 100%);
 }
 
-/* line 104, ../sass/styles.scss */
+/* line 105, ../sass/styles.scss */
 .fire {
   background-color: #fe0312;
   *zoom: 1;
@@ -8152,7 +8163,7 @@ header .camper-progress .lvl-progress .progress.seven-ten {
   background-image: linear-gradient(to right bottom, #fe0312 0%, #7f0109 100%);
 }
 
-/* line 107, ../sass/styles.scss */
+/* line 108, ../sass/styles.scss */
 .navigation {
   background-color: #e70985;
   *zoom: 1;
@@ -8165,7 +8176,7 @@ header .camper-progress .lvl-progress .progress.seven-ten {
   background-image: linear-gradient(to right bottom, #e70985 0%, #67043c 100%);
 }
 
-/* line 110, ../sass/styles.scss */
+/* line 111, ../sass/styles.scss */
 .shelter {
   background-color: #e8e622;
   *zoom: 1;
@@ -8178,7 +8189,7 @@ header .camper-progress .lvl-progress .progress.seven-ten {
   background-image: linear-gradient(to right bottom, #e8e622 0%, #9c9b17 100%);
 }
 
-/* line 113, ../sass/styles.scss */
+/* line 114, ../sass/styles.scss */
 .first-aid {
   background-color: #fd5110;
   *zoom: 1;
@@ -8191,7 +8202,7 @@ header .camper-progress .lvl-progress .progress.seven-ten {
   background-image: linear-gradient(to right bottom, #fd5110 0%, #7d2808 100%);
 }
 
-/* line 116, ../sass/styles.scss */
+/* line 117, ../sass/styles.scss */
 .settings {
   background-color: #aaa;
   *zoom: 1;
@@ -8204,7 +8215,7 @@ header .camper-progress .lvl-progress .progress.seven-ten {
   background-image: linear-gradient(to right bottom, #aaaaaa 0%, #333333 100%);
 }
 
-/* line 119, ../sass/styles.scss */
+/* line 120, ../sass/styles.scss */
 .tile-button {
   height: 260px;
   text-align: center;
@@ -8213,7 +8224,7 @@ header .camper-progress .lvl-progress .progress.seven-ten {
   position: relative;
   color: #fff;
 }
-/* line 126, ../sass/styles.scss */
+/* line 127, ../sass/styles.scss */
 .tile-button span.center {
   position: absolute;
   top: 50%;
@@ -8224,19 +8235,19 @@ header .camper-progress .lvl-progress .progress.seven-ten {
   transform: translate(-50%, -50%);
   width: 100%;
 }
-/* line 132, ../sass/styles.scss */
+/* line 133, ../sass/styles.scss */
 .tile-button span.center img {
   width: 32px;
   height: 32px;
 }
 
-/* line 138, ../sass/styles.scss */
+/* line 139, ../sass/styles.scss */
 .list-view-btn {
   height: 100px;
   color: #fff;
   position: relative;
 }
-/* line 142, ../sass/styles.scss */
+/* line 143, ../sass/styles.scss */
 .list-view-btn span {
   position: absolute;
   top: 50%;
@@ -8247,7 +8258,7 @@ header .camper-progress .lvl-progress .progress.seven-ten {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-/* line 149, ../sass/styles.scss */
+/* line 150, ../sass/styles.scss */
 .list-view-btn:after {
   position: absolute;
   top: 50%;
@@ -8264,7 +8275,28 @@ header .camper-progress .lvl-progress .progress.seven-ten {
   border-left: 25px solid #FFF;
 }
 
-/* line 162, ../sass/styles.scss */
+/* line 163, ../sass/styles.scss */
 .error {
   color: #EE3333;
+}
+
+/* line 166, ../sass/styles.scss */
+.full-image {
+  margin: 0px 21px 21px 0px;
+  border: 7px solid #5B67FF;
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4), 7px 7px 0 #2D347F, 8px 8px 2px rgba(0, 0, 0, 0.4), 14px 14px 0 #171A40, 15px 15px 2px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4), 7px 7px 0 #2D347F, 8px 8px 2px rgba(0, 0, 0, 0.4), 14px 14px 0 #171A40, 15px 15px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4), 7px 7px 0 #2D347F, 8px 8px 2px rgba(0, 0, 0, 0.4), 14px 14px 0 #171A40, 15px 15px 2px rgba(0, 0, 0, 0.4);
+  width: 100%;
+}
+
+/* line 171, ../sass/styles.scss */
+.img-icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* line 175, ../sass/styles.scss */
+.camera-capture {
+  text-align: center;
 }
