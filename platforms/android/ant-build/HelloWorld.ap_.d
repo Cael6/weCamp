@@ -86,6 +86,7 @@ C:\xampp\htdocs\weCamp\platforms\android\assets\www\js\bootstrap \
 C:\xampp\htdocs\weCamp\platforms\android\assets\www\js\bootstrap-sprockets.js \
 C:\xampp\htdocs\weCamp\platforms\android\assets\www\js\bootstrap.js \
 C:\xampp\htdocs\weCamp\platforms\android\assets\www\js\index.js \
+C:\xampp\htdocs\weCamp\platforms\android\assets\www\js\jquery-2.1.1.min.js \
 C:\xampp\htdocs\weCamp\platforms\android\assets\www\js\bootstrap\affix.js \
 C:\xampp\htdocs\weCamp\platforms\android\assets\www\js\bootstrap\alert.js \
 C:\xampp\htdocs\weCamp\platforms\android\assets\www\js\bootstrap\button.js \

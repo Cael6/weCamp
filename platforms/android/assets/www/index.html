@@ -102,8 +102,44 @@
                 </a>
             </div>
         </div>
+        <div class="modal fade" id="scoutGuide">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <h4 class="modal-title">Select a group</h4>
+                <button type="button" class="btn btn-primary">Boy Scouts</button>
+                <button type="button" class="btn btn-primary">Girl Guides</button>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <div class="modal fade" id="ageGroup">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <h4 class="modal-title">Select an age group</h4>
+                <button type="button" class="btn btn-primary">5 - 11</button>
+                <button type="button" class="btn btn-primary">12 - 18</button>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <div class="modal fade" id="createPass">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <h4 class="modal-title">Enter a password</h4>
+                <button type="button" class="btn btn-primary">Enter</button>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript">
+            $(window).load(function(){
+                $('#scoutGuide').modal('show');
+            });
+        </script>
         <script type="text/javascript">
             app.initialize();
         </script>

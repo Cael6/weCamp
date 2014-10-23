@@ -8263,3 +8263,8 @@ header .camper-progress .lvl-progress .progress.seven-ten {
   border-bottom: 25px solid transparent;
   border-left: 25px solid #FFF;
 }
+
+/* line 162, ../sass/styles.scss */
+.error {
+  color: #EE3333;
+}
